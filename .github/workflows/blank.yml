@@ -43,7 +43,8 @@ jobs:
         run: ./gradlew bundleRelease
         
      - name: Display structure of downloaded files
-        run: ls -R platforms/android/app/build/outputs/bundle/release
+       working-directory: ./platforms/android/
+       run: ls -lah app/build/outputs/bundle/release
 
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
