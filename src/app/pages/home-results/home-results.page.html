@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="dark"> Elenco Corsi </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        size="small"
+        shape="round"
+        color="dark"
+        (click)="notifications()"
+      >
+        <ion-icon name=""></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    <!-- (ionInput)="find()" [(ngModel)]="searchKey" -->
+    <ion-searchbar
+      placeholder="Cerca"
+      debounce="500"
+      (ionChange)="onSearch($event)"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="startup-list">
+  <div *ngIf="startups.length > 0; else skeleton">
+
+
+
+    <div class="padding">
+      <div class="inner">
+        <ion-row>
+      <ion-col size="6"
+        *ngFor="let startup of startups"
+        routerLink="/detail/{{startup.page_id}}"
+      >
+      
+      <div class="tour-wrapper-item">
+        <!-- <ion-item *ngFor="let item of results" routerLink="/detail/{{item.page_id}}" class="ion-text-wrap"> -->
+       
+       
+          <div class="image-home">
+           <div class="tour-type" *ngIf="!startup.description_3 == ''"> {{startup.description_3}}</div>
+
+            <img
+              src="https://www.associazionecomunali.it/assets/pages/{{startup.photo}}"
+              alt=""
+              class="img-responsive img-fluid object-fit_cover"
+            />
+
+          </div>
+
+            <div class="content">
+              <h3 [innerHtml]="startup.page_title | truncate: 40"></h3>
+            </div>
+          </div>
+
+      </ion-col>
+
+    </ion-row>
+  </div>
+    </div>
+
+    <ion-infinite-scroll
+      (ionInfinite)="loadPokemon(true, $event)"
+      threshold="200px"
+    >
+      <ion-infinite-scroll-content
+        loadingSpinner="crescent"
+        loadingText="Loading more ..."
+      >
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <ng-template #skeleton>
+    <div class="padding">
+      <div class="inner"> 
+      <ion-item *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h2>
+          <p>
+            <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      </div>
+    </div>
+  </ng-template>
+</ion-content>
+<footer></footer>

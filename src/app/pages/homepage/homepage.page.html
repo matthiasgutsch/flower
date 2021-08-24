@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="dark">Benvenuto</ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+     
+      <ion-button size="small" shape="round" color="dark" (click)="soci()">
+        <ion-icon name=""></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="homepage">
+
+  <ion-slides [options]="slideOpts2" pager="true" loop="true">
+    <ion-slide class="full">
+      <div class="slider-image" routerLink="/area/11">
+        <img src="https://www.associazionecomunali.it/assets/images/travel_banner.jpg">
+      </div>
+    </ion-slide>
+    <ion-slide class="full">
+      <div class="slider-image" routerLink="/area/11">
+        <img src="https://www.associazionecomunali.it/assets/images/travel_banner_2.jpg">
+      </div>
+    </ion-slide>
+
+    <ion-slide class="full">
+      <div class="slider-image" >
+      <a href="https://www.servizioggi.it/" target="_blank"><img src="https://www.associazionecomunali.it/assets/images/servizi_banner.jpg"></a>
+      </div>
+  </ion-slide>
+</ion-slides>
+
+  <div class="clearfix"></div>
+  <div class="page-subtitle">
+    <span> Top News</span>
+  </div>
+
+  <div class="padding">
+
+    <div class="inner">
+      <ion-row>
+        <div class="scrolling-wrapper">
+
+          <div *ngFor="let n of news" class="card">
+            <!-- <ion-item *ngFor="let item of results" routerLink="/detail/{{item.page_id}}" class="ion-text-wrap"> -->
+            <div class="slide-card-image">
+              <img src="https://www.associazionecomunali.it/assets/pages/{{n.photo}}"
+                class="img-responsive object-fit_cover" routerLink="/news-detail/{{n.page_id}}">
+            </div>
+            <div class="inner">
+              <ion-label class="ion-text-wrap">
+                <h3 [innerHTML]="n.page_title"></h3>
+                <div class="clearfix"></div>
+
+                <p [innerHTML]="n.description_1 | truncate :70"></p>
+
+              </ion-label>
+            </div>
+
+          </div>
+        </div>
+      </ion-row>
+
+    </div>
+  </div>
+
+</ion-content>
+
+<footer></footer>

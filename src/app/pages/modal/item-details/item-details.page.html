@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="closeModal()">
+                <ion-icon name="close" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Dettaglio
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <div *ngIf="information">
+
+        <h2 [innerHTML]="information.page_title"></h2>
+
+        <ion-row>
+            <ion-col size="4">
+                <img src="https://www.ilrio.it/assets/pages/thumbnail/{{information.photo}}">
+            </ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col>
+                <em><span *ngFor="let curator of information.curators">
+                {{ curator.client_name }}
+              </span>
+      
+              <span *ngFor="let c of information.client">
+                  {{ c.client_name }}
+                  </span>
+
+                  <span *ngFor="let f of information.features">
+                    {{ f.features_title }}
+                    {{ f.features_value }}
+                    </span>
+
+              </em>
+                <div class="clearfix"></div>
+                <h3>
+                    {{ information.price.toLocaleString('it-IT', { minimumFractionDigits: 2 , style: 'currency', currency: 'EUR' }) }}
+                </h3>
+            </ion-col>
+        </ion-row>
+        <p [innerHTML]="information.description_1"></p>
+        <hr>
+        <p [innerHTML]="information.description_2"></p>
+
+
+
+        <!-- (click)="openWebsite()" -->
+        <ion-button expand="full">
+
+            Richiedi informazioni
+        </ion-button>
+
+
+
+
+    </div>
+
+
+    <ion-list>
+
+        <ion-item button *ngFor="let item of resultsRandom | slice:0:3" (click)="presentItem(item)" class="ion-text-wrap">
+            <ion-avatar slot="start">
+                <img src="https://www.ilrio.it/assets/pages/thumbnail/{{item.photo}}">
+            </ion-avatar>
+
+            <ion-label class="ion-text-wrap">
+                <strong [innerHTML]="item.page_title"></strong>
+                <div class="clearfix"></div>
+                <em><span *ngFor="let curator of item.curators">
+              {{ curator.client_name }}
+            </span>
+
+            <span *ngFor="let c of item.client">
+                {{ c.client_name }}
+                </span>
+            </em>
+                <br> {{ item.price.toLocaleString('it-IT', { minimumFractionDigits: 2 , style: 'currency', currency: 'EUR' }) }}
+            </ion-label>
+
+
+
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>

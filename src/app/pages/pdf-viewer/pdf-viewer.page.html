@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-back-button color="dark"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-text color="dark">
+                Documento
+            </ion-text>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" shape="round" color="dark" >
+                <ion-icon name=""></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+
+        <ngx-doc-viewer *ngFor="let file of files" [googleCheckContentLoaded]="false" url="https://associazionecomunali.it/assets/page_files/{{file.page_id}}/{{file.file_name}}" [viewer]="viewer" style="width:100%;height:80vh;"></ngx-doc-viewer>
+
+
+</ion-content>
+<footer></footer>

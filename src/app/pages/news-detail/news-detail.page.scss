@@ -1,0 +1,73 @@
+ion-slide span {
+    padding-left: 2px!important;
+    padding-right: 2px!important;
+    padding-top: 2px!important;
+    padding-bottom: 2px!important;
+    width: 85px!important;
+    height: 70px!important;
+}
+
+ion-slide:hover {
+    cursor: pointer;
+}
+
+.ion-slide-container-wrapper {
+    padding: 15px;
+}
+
+ion-slide {
+    width: 134px!important;
+    background-color: #FFF;
+    float: left;
+    margin-right: 10px!important;
+    text-align: left;
+    height: 220px !important;
+    padding: 0px;
+    border-radius: 3px;
+    text-align: left !important;
+    h3 {
+        font-weight: 700;
+        height: 34px;
+        line-height: 16px;
+        overflow: hidden;
+        padding: 0px !important;
+        text-align: left !important;
+        margin: 0px !important;
+    }
+    h5 {
+        font-weight: 700 !important;
+        color: #de6d41;
+        ;
+    }
+}
+
+ion-slide ion-slides {
+    background-color: #FFF;
+}
+
+.image-home img[class] {
+    width: 100%;
+}
+
+.image-home img {
+    height: 130px !important;
+    background-color: #444;
+    margin-bottom: 10px;
+}
+
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1.3s;
+    animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+    animation-fill-mode: forwards;
+}
+
+.object-fit_cover {
+    object-fit: cover;
+}

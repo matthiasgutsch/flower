@@ -1,0 +1,78 @@
+ion-slide span {
+    padding-left: 2px!important;
+    padding-right: 2px!important;
+    padding-top: 2px!important;
+    padding-bottom: 2px!important;
+    width: 100% !important;
+    height: 70px!important;
+}
+
+ion-slide:hover {
+    cursor: pointer;
+}
+
+.ion-slide-container-wrapper {
+    padding: 15px;
+}
+
+ion-slide {
+    width: 100%!important;
+    background-color: transparent !important;
+    float: left;
+    margin-right: 0px!important;
+    margin-left: 0px!important;
+    height: 240px;
+    text-align: left;
+    padding: 0px;
+    border-radius: 0px;
+    text-align: left !important;
+
+   
+}
+
+ion-slide ion-slides {
+}
+
+.image-slider img[class] {
+    width: 100%;
+}
+
+.image-slider img {
+    height: 240px !important;
+    background-color: #444;
+    margin-bottom: 10px;
+}
+
+
+
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1.3s;
+    animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+    animation-fill-mode: forwards;
+}
+
+.object-fit_cover {
+    object-fit: cover;
+}
+
+.slider-wrapper {
+    position: relative;
+
+
+    .tour-type {
+        background-color: #ed3f49;
+        position: absolute;
+        color: #FFF;
+        padding: 3px 9px;
+        font-size: 14px;
+        top: 20px;
+        z-index: 100;
+      }
+}

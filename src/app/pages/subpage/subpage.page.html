@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button color="light"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-text color="dark">
+
+            </ion-text>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" shape="round" color="dark" (click)="notifications()">
+                <ion-icon name="notifications"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" >
+
+ 
+    
+    <div margin *ngFor="let page of pages">
+        <h3 [innerHTML]="page.page_title"></h3>
+        <hr>
+        <p [innerHTML]="page.description_1"></p>
+        <p [innerHTML]="page.description_2"></p>
+    </div>
+
+    <ion-list class="ion-margin subpage-list" margin *ngFor="let file of files">
+
+        <ion-item routerLink="/document/{{file.id}}">
+      <ion-label >{{file.description}}</ion-label>
+
+    </ion-item>
+    </ion-list>
+
+
+    <div margin *ngFor="let res of subpages">
+            <hr class="full">
+        <strong  routerLink="/subpage/{{res.page_id}}" [innerHTML]="res.page_title"></strong>
+
+    </div>
+
+
+
+</ion-content>
+<footer></footer>

@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-menu-button color="dark"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-text color="dark">
+                Area Soci
+            </ion-text>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" shape="round" color="dark" (click)="logout()">
+                <ion-icon name="person"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+    <div *ngFor="let page of pages">
+        <img *ngIf="page.photo == '' " src="https://www.associazionecomunali.it/assets/images/default/default_1.jpg" class="img-responsive">
+
+        <img src="https://www.associazionecomunali.it/assets/pages/{{page.photo}}" *ngIf="!page.photo == '' " alt="" class="object-fit_cover" />
+        <div class="ion-margin">
+            <strong [innerHTML]="page.page_title"></strong>
+            <p [innerHTML]="page.description_1"></p>
+            <p [innerHTML]="page.description_2"></p>
+        </div>
+    </div>
+
+    <div margin *ngFor="let file of files">
+
+      
+      <a target="_blank" href="https://www.associazionecomunali.it/assets/page_files/{{file.page_id}}/{{file.file_name}}">  <strong  [innerHTML]="file.description"></strong></a>
+
+    </div>
+    <ion-list class="ion-margin subpage-list" *ngFor="let res of subpages">
+     
+            <ion-item routerLink="/subpage/{{res.page_id}}">
+                
+               
+
+               <ion-label>{{res.page_title}}</ion-label>
+              <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+
+            </ion-item>
+           
+
+
+    </ion-list>
+
+</ion-content>
+<footer></footer>

@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-back-button color="dark"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-text color="dark">
+                Area Soci
+            </ion-text>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" shape="round" color="dark" (click)="notifications()">
+                <ion-icon name=""></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+
+    
+    <div *ngFor="let page of pages">
+        <img *ngIf="page.photo == '' " src="https://www.associazionecomunali.it/assets/images/default/default_1.jpg" class="img-responsive">
+
+        <img src="https://www.associazionecomunali.it/assets/pages/{{page.photo}}" *ngIf="!page.photo == '' " alt="" class="object-fit_cover" />
+        <div class="ion-margin">
+            <h3 [innerHTML]="page.page_title"></h3>
+            <hr>
+            <p [innerHTML]="page.description_1"></p>
+            <p [innerHTML]="page.description_2"></p>
+        </div>
+    </div>
+
+
+    <ion-list class="ion-margin subpage-list" *ngFor="let res of products">
+     
+        <ion-item routerLink="/area-products/{{res.page_id}}">
+            
+
+           <ion-label  [innerHTML]="res.page_title"></ion-label>
+          <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+        </ion-item>
+       
+
+
+</ion-list>
+    <ion-list class="ion-margin subpage-list" margin *ngFor="let file of files">
+
+        <ion-item routerLink="/document/{{file.id}}">
+      <ion-label >{{file.description}}</ion-label>
+
+    </ion-item>
+    </ion-list>
+    
+
+
+    
+
+</ion-content>
+<footer></footer>

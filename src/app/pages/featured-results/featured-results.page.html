@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <ion-text color="light">
+                Nuovi libri
+            </ion-text>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" shape="round" color="medium" (click)="notifications()">
+                <ion-icon name=""></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+    <div *ngIf="pokemons.length > 0; else skeleton">
+
+        <ion-list>
+
+            <ion-item button *ngFor="let pokemon of pokemons" routerLink="/detail/{{pokemon.page_id}}" class="ion-text-wrap">
+                <!-- <ion-item *ngFor="let item of results" routerLink="/detail/{{item.page_id}}" class="ion-text-wrap"> -->
+
+                <ion-col size="3">
+                    <img src="https://www.ilrio.it/assets/pages/thumbnail/{{pokemon.photo}}">
+                </ion-col>
+                <ion-col size="1"></ion-col>
+
+
+                <ion-col>
+
+                    <ion-label class="ion-text-wrap">
+                        <strong [innerHTML]="pokemon.page_title"></strong>
+                        <div class="clearfix"></div>
+                        <em><span *ngFor="let curator of pokemon.curators">
+                  {{ curator.client_name }}
+                </span>
+
+                <span *ngFor="let c of pokemon.client">
+                    {{ c.client_name }}
+                    </span>
+                </em>
+                        <h3 class="price"> {{pokemon.price}}</h3>
+                    </ion-label>
+
+                </ion-col>
+            </ion-item>
+
+        </ion-list>
+
+
+        <ion-infinite-scroll (ionInfinite)="loadPokemon(true, $event)">
+            <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading more ...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+
+    <ng-template #skeleton>
+        <ion-list>
+            <ion-item *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+                <ion-avatar slot="start">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h2>
+                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h2>
+                    <p>
+                        <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ng-template>
+
+
+
+
+</ion-content>
+<footer></footer>

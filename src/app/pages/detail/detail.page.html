@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light"></ion-title>
+
+    <ion-buttons slot="end"> </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="tour-detail">
+
+  <div class="slider-wrapper">
+    <div class="tour-type"> {{startup.description_3}}</div>
+
+  <ion-slides scrollbar="false" pager="true">
+
+    <ion-slide>
+      <div class="image-slider">
+      <img
+      src="{{startup.photo}}"
+      alt=""
+      class="object-fit_cover"
+    />
+  </div>
+    </ion-slide>
+
+
+    <ion-slide
+    *ngFor="let slideshow of startup.slideshow"
+  >      <div class="image-slider">
+
+    <img
+      src="https://www.mantovatours.com/assets/slideshow/{{startup.page_id}}/{{slideshow.image_name}}"
+      alt=""
+      class="object-fit_cover"
+    />
+    </div>
+  </ion-slide>
+
+  </ion-slides>
+
+  </div>
+           
+
+  <div *ngIf="startup" class="tour-detail-content">
+      <ion-row>
+        <ion-col size="12"><br>
+      <h3>{{startup.page_title}}</h3>
+          <hr>
+
+      <p [innerHTML]="startup.description_1"></p>
+      <p [innerHTML]="startup.description_2"></p>
+      <p [innerHTML]="startup.description_3"></p>
+      <p [innerHTML]="startup.description_4"></p>
+      <p [innerHTML]="startup.description_5"></p>
+      <p [innerHTML]="startup.description_6"></p>
+
+
+    
+
+        </ion-col>
+      </ion-row>
+
+
+  
+  </div>
+
+  <div class="ion-slide-container-wrapper">
+    <div
+      class="page-subtitle text-center">
+      <span> Altri Corsi</span>
+    </div>
+
+
+
+    <div class="padding">
+      <div class="inner">
+        <ion-row>
+      <ion-col size="6"
+        *ngFor="let startup of startupsRandom  | slice:0:4"
+        routerLink="/detail/{{startup.page_id}}"
+      >
+        <!-- <ion-item *ngFor="let item of results" routerLink="/detail/{{item.page_id}}" class="ion-text-wrap"> -->
+       
+          <div class="tour-wrapper-item">
+            <!-- <ion-item *ngFor="let item of results" routerLink="/detail/{{item.page_id}}" class="ion-text-wrap"> -->
+           
+           
+              <div class="image-home">
+                <div class="tour-type" *ngIf="!startup.description_3 == ''"> {{startup.description_3}}</div>
+
+                <img
+                  src="https://www.associazionecomunali.it/assets/pages/{{startup.photo}}"
+                  alt=""
+                  class="object-fit_cover"
+                />
+    
+              </div>
+    
+                <div class="content">
+                  <h3 [innerHtml]="startup.page_title | truncate: 40"></h3>
+                </div>
+              </div>
+      
+
+      </ion-col>
+
+    </ion-row>
+  </div>
+    </div>
+
+
+
+
+  </div>
+</ion-content>
+<footer></footer>

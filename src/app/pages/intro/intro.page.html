@@ -1,0 +1,43 @@
+<ion-content>
+
+    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="false" pager="true">
+        <ion-slide>
+            <div class="diag">
+                <img src="assets/img/icon.svg">
+            </div>
+            <div>
+                <h2>Step 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at mi dictum, cursus augue et, vulputate orci.</p>
+                <button routerLink="/home" id="skip">{{ skipMsg }}</button>
+
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="diag">
+                <img src="assets/img/icon.svg">
+            </div>
+            <div>
+                <h2>Step 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at mi dictum, cursus augue et, vulputate orci.</p>
+                <button routerLink="/home" id="skip">{{ skipMsg }}</button>
+
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="diag">
+                <img src="assets/img/icon.svg">
+            </div>
+            <div>
+                <h2>Step 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at mi dictum, cursus augue et, vulputate orci.</p>
+                <button routerLink="/home" id="skip">{{ skipMsg }}</button>
+
+            </div>
+        </ion-slide>
+
+
+    </ion-slides>
+
+</ion-content>
