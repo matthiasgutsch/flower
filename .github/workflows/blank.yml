@@ -30,19 +30,7 @@ jobs:
         run: npm install
 
       - name: Add Android platform
-        run: |
-          ionic cordova platform add android@latest
-          ionic cordova plugin add cordova-plugin-device
-          npm install @ionic-native/device
-          ionic cordova plugin add cordova-plugin-splashscreen
-          npm install @ionic-native/splash-screen
-          ionic cordova plugin add cordova-plugin-ionic-keyboard
-          npm install @ionic-native/keyboard
-          ionic cordova plugin add cordova-plugin-statusbar
-          npm install @ionic-native/status-bar
-        
-      - name: Display package.json
-        run: more package.json
+        run: ionic cordova platform add android@latest
 
       - name: Build Android Dev APK
         run: ionic cordova build android
